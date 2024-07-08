@@ -12,7 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 // Check if data.data exists and is an array
                 if (data && Array.isArray(data.data)) {
-                    const result = data.data.find(row => row.rid === referenceId);
+                    const records = data.data;
+                    const result = records.find(row => row.rid === referenceId);
                     console.log('Result:', result);  // Log the found result
 
                     if (result) {
