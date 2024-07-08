@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Certificate Details</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .inf-content {
+            border: 1px solid #DDDDDD;
+            border-radius: 10px;
+            box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);
+        }
+    </style>
+</head>
+<body>
+    <div class="container bootstrap snippet">
+        <h1>Certificate Details</h1>
+        <div class="panel-body inf-content">
+            <div class="row">
+                <div class="col-md-3 text-center">
+                    <img id="avatar" alt="" style="width:250px;height:250px;" class="img-circle img-thumbnail">
+                </div>
+                <div class="col-md-9">
+                    <strong>Information</strong><br>
+                    <div class="table-responsive">
+                        <table class="table table-user-information">
+                            <tbody id="certificate-details">
+                                <tr>
+                                    <td><strong>Certificate Number</strong></td>
+                                    <td class="text-primary" id="certificate_number"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Name</strong></td>
+                                    <td class="text-primary" id="name"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Designation</strong></td>
+                                    <td class="text-primary" id="designation"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Institute</strong></td>
+                                    <td class="text-primary" id="institute"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workshop Organizer</strong></td>
+                                    <td class="text-primary" id="workshop_organizer"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workshop Name</strong></td>
+                                    <td class="text-primary" id="workshop_name"></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Workshop Date</strong></td>
+                                    <td class="text-primary" id="workshop_date"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="col-md-12 text-center" id="no-data" style="display: none;">
+                    Nothing to show...
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
