@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
     const referenceId = params.get('rid');
-    const apiUrl = 'https://script.googleusercontent.com/macros/echo?user_content_key=kbXyfmGrP4X21o_MK10z55LaNQmlrKTQTQd67WMbdbPdjoJFV9uG0AKPX2yxi30BTSaFLSufc6U4xnPy5nGOUNqT9DF_OYRrm5_BxDlH2jW0nuo2oDemN9CCS2h10ox_1xSncGQajx_ryfhECjZEnIsDKIwUYotFyfNcVJzJqmGvSULHARThWuHBgSnTNoz3Hkdorz0XnkR2v4yGSrYHvxSksElpiPxenQZ_yswogU_iKlrA50qxHQ&lib=MtPXOhk1BstOikaykFYxCauM4e3ywuRvV';
+    const apiUrl = 'https://script.google.com/macros/s/AKfycby6VcNPepcFIuZGPSi1DtS5Jl7p8EQK69tmVHjCY6PInyk8MDkTVcdjNsKYLGcl_xNVhg/exec'; // Updated API URL
 
     if (referenceId) {
         console.log('Reference ID:', referenceId);  // Log reference ID
@@ -17,14 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('Result:', result);  // Log the found result
 
                     if (result) {
-                        document.getElementById('certificate_number').textContent = result.certificate_number;
+                        document.getElementById('rid').textContent = result.rid;
                         document.getElementById('name').textContent = result.name;
-                        document.getElementById('designation').textContent = result.designation;
-                        document.getElementById('institute').textContent = result.institute;
-                        document.getElementById('workshop_organizer').textContent = result.workshop_organizer;
-                        document.getElementById('workshop_name').textContent = result.workshop_name;
-                        document.getElementById('workshop_date').textContent = result.workshop_date;
-                        document.getElementById('avatar').src = result.avatar_url || "https://i.stack.imgur.com/34AD2.jpg";
+                        document.getElementById('position').textContent = result.position;
+                        document.getElementById('domain').textContent = result.domain;
+                        document.getElementById('time_range').textContent = result['time range'];
+                        document.getElementById('projects').textContent = result.projects;
                     } else {
                         document.getElementById('certificate-details').style.display = 'none';
                         document.getElementById('no-data').style.display = 'block';
