@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const params = new URLSearchParams(window.location.search);
-    const referenceId = params.get('rid');
+    const referenceId = params.get('rid');  // Get the reference ID from the URL
     const apiUrl = 'https://script.google.com/macros/s/AKfycby6VcNPepcFIuZGPSi1DtS5Jl7p8EQK69tmVHjCY6PInyk8MDkTVcdjNsKYLGcl_xNVhg/exec'; // Updated API URL
 
     if (referenceId) {
@@ -13,7 +13,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 // Check if data.data exists and is an array
                 if (data && Array.isArray(data.data)) {
                     const records = data.data;
-                    const result = records.find(row => row.rid === referenceId);
+                    // Convert referenceId to a string to match the data format correctly
+                    const result = records.find(row => String(row.rid) === referenceId);
                     console.log('Result:', result);  // Log the found result
 
                     if (result) {
@@ -27,25 +28,23 @@ document.addEventListener('DOMContentLoaded', function () {
                         document.getElementById('certificate-details').style.display = 'table-row-group'; // Ensure the details are visible
                         document.getElementById('no-data').style.display = 'none'; // Hide the "no data" message
                     } else {
-                        // If no result found for the provided rid, show the "no data" message
+                        console.warn('No matching result for rid:', referenceId);
                         document.getElementById('certificate-details').style.display = 'none';
                         document.getElementById('no-data').style.display = 'block';
                     }
                 } else {
-                    // If the data structure is invalid, show the "no data" message
                     console.error('Error: Invalid data structure:', data);
                     document.getElementById('certificate-details').style.display = 'none';
                     document.getElementById('no-data').style.display = 'block';
                 }
             })
             .catch(error => {
-                // Handle any errors that occur during the fetch
                 console.error('Error fetching the API data:', error);
                 document.getElementById('certificate-details').style.display = 'none';
                 document.getElementById('no-data').style.display = 'block';
             });
     } else {
-        // If no rid parameter is found in the URL, show the "no data" message
+        console.warn('No reference ID found in URL');
         document.getElementById('certificate-details').style.display = 'none';
         document.getElementById('no-data').style.display = 'block';
     }
