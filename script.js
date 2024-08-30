@@ -17,28 +17,35 @@ document.addEventListener('DOMContentLoaded', function () {
                     console.log('Result:', result);  // Log the found result
 
                     if (result) {
+                        // Display the result data in the respective HTML elements
                         document.getElementById('rid').textContent = result.rid;
                         document.getElementById('name').textContent = result.name;
                         document.getElementById('position').textContent = result.position;
                         document.getElementById('domain').textContent = result.domain;
                         document.getElementById('time_range').textContent = result['time range'];
                         document.getElementById('projects').textContent = result.projects;
+                        document.getElementById('certificate-details').style.display = 'table-row-group'; // Ensure the details are visible
+                        document.getElementById('no-data').style.display = 'none'; // Hide the "no data" message
                     } else {
+                        // If no result found for the provided rid, show the "no data" message
                         document.getElementById('certificate-details').style.display = 'none';
                         document.getElementById('no-data').style.display = 'block';
                     }
                 } else {
+                    // If the data structure is invalid, show the "no data" message
                     console.error('Error: Invalid data structure:', data);
                     document.getElementById('certificate-details').style.display = 'none';
                     document.getElementById('no-data').style.display = 'block';
                 }
             })
             .catch(error => {
+                // Handle any errors that occur during the fetch
                 console.error('Error fetching the API data:', error);
                 document.getElementById('certificate-details').style.display = 'none';
                 document.getElementById('no-data').style.display = 'block';
             });
     } else {
+        // If no rid parameter is found in the URL, show the "no data" message
         document.getElementById('certificate-details').style.display = 'none';
         document.getElementById('no-data').style.display = 'block';
     }
